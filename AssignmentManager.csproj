@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>80c25559-feba-4d2b-b522-5c035a03cd90</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="frontend\src\app\admin\layout.tsx" />
+    <None Remove="frontend\src\app\admin\settings\page.tsx" />
+    <None Remove="frontend\src\app\admin\submissions\page.tsx" />
+    <None Remove="frontend\src\app\admin\teacher-assignments\page.tsx" />
+    <None Remove="frontend\src\app\admin\teacher\assignments\create\page.tsx" />
+    <None Remove="frontend\src\app\teacher\assignments\[id]\edit\page.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- TypeScript/TSX files the project should know about (not compiled by Roslyn) -->
+    <TypeScriptCompile Include="frontend\src\app\admin\layout.tsx" />
+    <TypeScriptCompile Include="frontend\src\app\admin\settings\page.tsx" />
+    <TypeScriptCompile Include="frontend\src\app\admin\submissions\page.tsx" />
+    <TypeScriptCompile Include="frontend\src\app\admin\teacher-assignments\page.tsx" />
+    <TypeScriptCompile Include="frontend\src\app\admin\teacher\assignments\create\page.tsx" />
+    <TypeScriptCompile Include="frontend\src\app\admin\teacher\page.tsx" />
+    <TypeScriptCompile Include="frontend\src\app\profile\page.tsx" />
+    <TypeScriptCompile Include="frontend\src\app\providers.tsx" />
+    <TypeScriptCompile Include="frontend\src\app\teacher\assignments\create\page.tsx" />
+    <TypeScriptCompile Include="frontend\src\app\teacher\assignments\[id]\edit\page.tsx" />
+    <!-- Added the admin page.tsx here so it is not treated as C# -->
+    <TypeScriptCompile Include="frontend\src\app\admin\page.tsx" />
+    <TypeScriptCompile Include="frontend\src\app\teacher\assignments\[id]\submissions\page.tsx" />
+    <TypeScriptCompile Include="frontend\src\lib\api.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="frontend\src\components\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Prevent C# compiler from treating frontend files as C# source -->
+    <Compile Remove="frontend\**\*.ts;frontend\**\*.tsx;frontend\**\*.js;frontend\**\*.jsx" />
+    <None Include="frontend\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="frontend\src\app\admin\teacher\page.tsx" />
+    <None Remove="frontend\src\app\profile\page.tsx" />
+    <None Remove="frontend\src\app\providers.tsx" />
+    <None Remove="frontend\src\lib\api.ts" />
+  </ItemGroup>
+</Project>
