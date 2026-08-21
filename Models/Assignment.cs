@@ -5,6 +5,14 @@
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
+
+        /*
+         Note: string means the property is required.
+        string? means it is optional and can be null
+        We use this so the compiler and the API contract are clear.
+        for example Description and Feedback can be empty, but Title and Email cannot. 
+        It also helps avoid NullReferenceException 
+         */
         public DateTime Deadline { get; set; }
         public int MaxMarks { get; set; }
         public bool IsPublished { get; set; } = false;   // Draft or Published
@@ -20,5 +28,6 @@
         public Subject Subject { get; set; } = null!;
 
         public ICollection<Submission> Submissions { get; set; } = new List<Submission>();
+        // One assignment → many submissions. ICollection is EF’s usual type for “many”.
     }
 }

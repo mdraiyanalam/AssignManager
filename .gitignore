@@ -1,7 +1,7 @@
 # Visual Studio
-.vs/
-*.user
-*.suo
+.vs/ #ignores the folder and its every content
+*.user #ignores every files that ends with *.user
+*.suo #ignores every files that ends with *.suo
 *.userosscache
 *.sln.docstates
 *.rsuser
@@ -10,8 +10,8 @@
 # Build results
 bin/
 obj/
-[Dd]ebug/
-[Rr]elease/
+[Dd]ebug/ #ignores the folder Debug and Debug, and its every content
+[Rr]elease/ #ignores the folder Release and release, and its every content
 x64/
 x86/
 [Aa]rtifacts/
@@ -28,7 +28,7 @@ artifacts/
 *.log
 
 # Next.js 
-frontend/node_modules/
+frontend/node_modules/ #ignores the subfolder of the specified path, and its every content of filename.whateverextensionis
 frontend/.next/
 frontend/out/
 frontend/dist/

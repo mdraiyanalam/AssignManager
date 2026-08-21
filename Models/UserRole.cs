@@ -11,3 +11,12 @@
         public DateTime AssignedAt { get; set; } = DateTime.UtcNow;
     }
 }
+
+/*
+    * User ──< UserRole >── Role
+    *User (Teacher) ──< Assignment >── Class
+                         └── Subject
+    * User (Student) ──< StudentEnrollment >── Class
+    * User (Student) ──< Submission >── Assignment
+    * User (Teacher) ──< TeacherAssignment >── Class + Subject
+ */

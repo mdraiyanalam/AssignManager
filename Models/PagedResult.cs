@@ -11,3 +11,9 @@
         public bool HasNext => PageNumber < TotalPages;
     }
 }
+
+/*
+ Note - 01: How does line - 09: 'public int TotalPages => (int)Math.Ceiling(TotalCount / (double)PageSize);' works?
+    If 'TotalCount' aka the Page Number is 47, and the Page Size is 10, 
+    then show 47/10=4.7 and Math.Ceiling of (47/10)=4.7 is 5. So, total number of page will be shown is 5.
+ */

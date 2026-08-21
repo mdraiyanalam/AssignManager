@@ -1,6 +1,6 @@
 ﻿namespace AssignmentManager.Models
 {
-    public class ApiResponse<T>
+    public class ApiResponse<T> //Generic class. T is whatever data you return (User, list, etc.).
     {
         public bool Success { get; set; }
         public string Message { get; set; } = string.Empty;
