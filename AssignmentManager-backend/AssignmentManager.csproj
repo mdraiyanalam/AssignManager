@@ -63,6 +63,9 @@
   <ItemGroup>
     <!-- Prevent C# compiler from treating frontend files as C# source -->
     <Compile Remove="frontend\**\*.ts;frontend\**\*.tsx;frontend\**\*.js;frontend\**\*.jsx" />
+    <Compile Remove="AssignmentManager.Tests\**\*.cs" />
+    <Content Remove="AssignmentManager.Tests\**\*" />
+    <None Remove="AssignmentManager.Tests\**\*" />
     <None Include="frontend\**\*.*" />
   </ItemGroup>
 
