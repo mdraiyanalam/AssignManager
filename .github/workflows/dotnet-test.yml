@@ -1,0 +1,26 @@
+name: .NET tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "AssignmentManager-backend/**"
+      - ".github/workflows/dotnet-test.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "AssignmentManager-backend/**"
+      - ".github/workflows/dotnet-test.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Run backend tests
+        working-directory: AssignmentManager-backend
+        run: dotnet test AssignmentManager.sln --configuration Release --verbosity minimal

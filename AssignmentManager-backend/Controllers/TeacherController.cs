@@ -374,6 +374,9 @@ namespace AssignmentManager.Controllers
              * Different from 404: here you admit the submission exists, but deny access
              */
 
+            if (dto.Marks < 0 || dto.Marks > submission.Assignment.MaxMarks)
+                return BadRequest($"Marks must be between 0 and {submission.Assignment.MaxMarks}");
+
             submission.MarksObtained = dto.Marks;
             /*
              * Save the score.

@@ -91,6 +91,7 @@ namespace AssignmentManager.Controllers
         }
 
         [HttpPut("users/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateUser(Guid id, [FromBody] UpdateUserDto dto)
         {
             var user = await _context.Users.FindAsync(id);
@@ -106,6 +107,7 @@ namespace AssignmentManager.Controllers
         }
 
         [HttpDelete("users/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeactivateUser(Guid id)
         {
             var user = await _context.Users.FindAsync(id);
@@ -119,6 +121,7 @@ namespace AssignmentManager.Controllers
 
         // ===== CHANGE ROLE =====
         [HttpPut("users/{id}/role")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeUserRole(Guid id, [FromBody] ChangeRoleDto dto)
         {
             var user = await _context.Users
@@ -179,6 +182,7 @@ namespace AssignmentManager.Controllers
         }
 
         [HttpPut("classes/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateClass(Guid id, [FromBody] Class model)
         {
             var existing = await _context.Classes.FindAsync(id);
@@ -220,6 +224,7 @@ namespace AssignmentManager.Controllers
         }
 
         [HttpPost("subjects")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateSubject([FromBody] Subject model)
         {
             _context.Subjects.Add(model);
@@ -228,6 +233,7 @@ namespace AssignmentManager.Controllers
         }
 
         [HttpPut("subjects/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateSubject(Guid id, [FromBody] Subject model)
         {
             var existing = await _context.Subjects.FindAsync(id);
@@ -245,6 +251,7 @@ namespace AssignmentManager.Controllers
 
         // ==================== 4. TEACHER ASSIGNMENTS ====================
         [HttpPost("teacher-assignments")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AssignTeacher([FromBody] TeacherAssignmentDto dto)
         {
             var exists = await _context.TeacherAssignments.AnyAsync(t =>
@@ -268,6 +275,7 @@ namespace AssignmentManager.Controllers
         }
 
         [HttpGet("teacher-assignments")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetTeacherAssignments()
         {
             var data = await _context.TeacherAssignments
@@ -289,6 +297,7 @@ namespace AssignmentManager.Controllers
 
         // ==================== 5. STUDENT ENROLLMENT ====================
         [HttpPost("enrollments")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EnrollStudent([FromBody] EnrollStudentDto dto)
         {
             var exists = await _context.StudentEnrollments
@@ -309,6 +318,7 @@ namespace AssignmentManager.Controllers
         }
 
         [HttpGet("enrollments")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetEnrollments()
         {
             var data = await _context.StudentEnrollments
@@ -329,6 +339,7 @@ namespace AssignmentManager.Controllers
 
         // ==================== 6. VIEW ALL ASSIGNMENTS & SUBMISSIONS ====================
         [HttpGet("assignments")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllAssignments([FromQuery] PaginationParams pagination)
         {
             var query = _context.Assignments
@@ -370,6 +381,7 @@ namespace AssignmentManager.Controllers
         }
 
         [HttpGet("submissions")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllSubmissions([FromQuery] PaginationParams pagination)
         {
             var query = _context.Submissions
@@ -409,12 +421,14 @@ namespace AssignmentManager.Controllers
 
         // ==================== 7. APPLICATION SETTINGS ====================
         [HttpGet("settings")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetSettings()
         {
             return Ok(await _context.AppSettings.ToListAsync());
         }
 
         [HttpPost("settings")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpsertSetting([FromBody] AppSetting model)
         {
             var existing = await _context.AppSettings

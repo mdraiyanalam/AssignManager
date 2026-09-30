@@ -1,6 +1,7 @@
+global using NUnit.Framework;
+
 using System.Globalization;
 using FluentValidation;
-using NUnit.Framework;
 
 namespace AssignmentManager.Tests.NUnit;
 

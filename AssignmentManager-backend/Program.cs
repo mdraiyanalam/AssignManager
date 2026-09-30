@@ -1,8 +1,11 @@
 using AssignmentManager.Data;
 using AssignmentManager.Middleware;
 using AssignmentManager.HealthChecks;
+using AssignmentManager.Validators;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -17,6 +20,8 @@ builder.Services.AddControllers()
         opts.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
         opts.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
     });
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<LoginDtoValidator>();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -149,3 +154,5 @@ app.MapControllers();
 app.MapHealthChecks("/health");
 
 app.Run();
+
+public partial class Program { }

@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37516.0 d17.14
+VisualStudioVersion = 17.14.37516.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssignmentManager", "AssignmentManager.csproj", "{C105EDA0-9D56-416F-A97A-88F86F262BD2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AssignmentManager.Tests", "AssignmentManager.Tests", "{4157AE30-6079-478A-5B4B-2839AC35B380}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssignmentManager.Tests.xUnit", "AssignmentManager.Tests\AssignmentManager.Tests.xUnit\AssignmentManager.Tests.xUnit.csproj", "{4F5846CE-9F5D-4A2B-BED9-67F8625F9FD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssignmentManager.Tests.NUnit", "AssignmentManager.Tests\AssignmentManager.Tests.NUnit\AssignmentManager.Tests.NUnit.csproj", "{9541E8E4-30E6-474F-8E17-8463FAAAB34E}"
 EndProject
@@ -21,10 +19,6 @@ Global
 		{C105EDA0-9D56-416F-A97A-88F86F262BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C105EDA0-9D56-416F-A97A-88F86F262BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C105EDA0-9D56-416F-A97A-88F86F262BD2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F5846CE-9F5D-4A2B-BED9-67F8625F9FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F5846CE-9F5D-4A2B-BED9-67F8625F9FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F5846CE-9F5D-4A2B-BED9-67F8625F9FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F5846CE-9F5D-4A2B-BED9-67F8625F9FD8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9541E8E4-30E6-474F-8E17-8463FAAAB34E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9541E8E4-30E6-474F-8E17-8463FAAAB34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9541E8E4-30E6-474F-8E17-8463FAAAB34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -34,7 +28,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4F5846CE-9F5D-4A2B-BED9-67F8625F9FD8} = {4157AE30-6079-478A-5B4B-2839AC35B380}
 		{9541E8E4-30E6-474F-8E17-8463FAAAB34E} = {4157AE30-6079-478A-5B4B-2839AC35B380}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
